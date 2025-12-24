@@ -1,0 +1,5 @@
+{
+  "name": "ClinicCal 診所常用計算機",
+  "description": "專為基層醫師設計的整合式臨床決策支援工具，包含臨床計算機、評估量表及健保查詢模擬功能。",
+  "requestFramePermissions": []
+}
