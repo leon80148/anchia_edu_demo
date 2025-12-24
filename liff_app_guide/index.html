@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康小筆記 - 使用教學</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        .markdown-body h2 {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .markdown-body h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #3b82f6;
+            border-radius: 2px;
+        }
+
+        .step-card {
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-notes-medical text-xl"></i>
+                    </div>
+                    <span class="font-bold text-xl text-slate-800">健康小筆記</span>
+                    <span class="hidden sm:inline-block text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">使用教學</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#intro" class="text-slate-600 hover:text-blue-600 font-medium transition">簡介</a>
+                    <a href="#quick-start" class="text-slate-600 hover:text-blue-600 font-medium transition">快速開始</a>
+                    <a href="#common-tasks" class="text-slate-600 hover:text-blue-600 font-medium transition">常見任務</a>
+                    <a href="#faq" class="text-slate-600 hover:text-blue-600 font-medium transition">常見問題</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-500 hover:text-slate-700 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#intro" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">簡介</a>
+                <a href="#quick-start" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">快速開始</a>
+                <a href="#common-tasks" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">常見任務</a>
+                <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">常見問題</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Header Section -->
+        <section id="intro" class="text-center space-y-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">健康小筆記</h1>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                專為糖尿病患者設計的 LINE 健康管理小幫手。<br class="hidden sm:block">
+                只需打開 LINE，輕鬆記錄，AI 幫您自動辨識。
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-left">
+                    <div class="text-blue-500 mb-3"><i class="fa-solid fa-list-check text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-2">8 種健康記錄</h3>
+                    <p class="text-sm text-slate-500">血糖、血壓、體重、用藥、飲食、運動、症狀、腸泌素</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-left">
+                    <div class="text-blue-500 mb-3"><i class="fa-solid fa-camera text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-2">OCR 拍照識別</h3>
+                    <p class="text-sm text-slate-500">拍血糖機或血壓計螢幕，數字自動填入</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-left">
+                    <div class="text-blue-500 mb-3"><i class="fa-solid fa-utensils text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-2">AI 飲食辨識</h3>
+                    <p class="text-sm text-slate-500">拍餐點照片，自動辨識食物與風險</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-left">
+                    <div class="text-blue-500 mb-3"><i class="fa-solid fa-chart-line text-2xl"></i></div>
+                    <h3 class="font-bold text-lg mb-2">健康報表</h3>
+                    <p class="text-sm text-slate-500">視覺化圖表，輕鬆查看健康趨勢</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-slate-200">
+
+        <!-- Quick Start Section -->
+        <section id="quick-start" class="space-y-8">
+            <div class="markdown-body">
+                <h2 class="text-3xl font-bold text-slate-800">快速開始：第一次使用</h2>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="step-card bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2 space-y-4">
+                            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600 font-bold mb-2">1</div>
+                            <h3 class="text-xl font-bold">開啟健康小筆記</h3>
+                            <ol class="list-decimal list-inside space-y-2 text-slate-600 pl-2">
+                                <li>打開您的 <strong>LINE</strong> App。</li>
+                                <li>點選診所提供的好友連結，或掃描 QR Code。</li>
+                                <li>畫面會自動跳轉到「健康小筆記」。</li>
+                            </ol>
+                        </div>
+                        <div class="md:w-1/2 grid grid-cols-3 gap-2">
+                            <div class="space-y-2">
+                                <img src="01.jpg" alt="從官方LINE點選健康筆記" class="w-full rounded-lg shadow-md border border-slate-100" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 01.jpg 缺失)'">
+                                <p class="text-xs text-center text-slate-400">官方帳號入口</p>
+                            </div>
+                            <div class="space-y-2">
+                                <img src="02.jpg" alt="點選健康筆記" class="w-full rounded-lg shadow-md border border-slate-100" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 02.jpg 缺失)'">
+                                <p class="text-xs text-center text-slate-400">選單入口</p>
+                            </div>
+                            <div class="space-y-2">
+                                <img src="03.jpg" alt="掃描 QR Code" class="w-full rounded-lg shadow-md border border-slate-100" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 03.jpg 缺失)'">
+                                <p class="text-xs text-center text-slate-400">掃描 QR Code</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 & 3 -->
+                <div class="step-card bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm">
+                    <div class="flex flex-col md:flex-row-reverse gap-8">
+                        <div class="md:w-1/2 space-y-4">
+                            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600 font-bold mb-2">2</div>
+                            <h3 class="text-xl font-bold">同意條款與填寫資料</h3>
+                            <div class="space-y-4 text-slate-600">
+                                <div>
+                                    <h4 class="font-semibold text-slate-800 mb-1">同意使用條款</h4>
+                                    <ol class="list-decimal list-inside pl-2 space-y-1">
+                                        <li>閱讀內容並勾選 <strong>「我已詳閱並同意以上條款」</strong>。</li>
+                                        <li>點選 <strong>確認</strong>。</li>
+                                    </ol>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                    <p class="text-sm text-green-800">
+                                        <i class="fa-solid fa-check-circle mr-1"></i>
+                                        <strong>最佳做法：</strong> 請仔細閱讀條款，了解您的資料隱私權益。
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-800 mb-1">填寫基本資料</h4>
+                                    <ol class="list-decimal list-inside pl-2 space-y-1">
+                                        <li>輸入 <strong>姓名</strong>、<strong>生日</strong>、<strong>電話</strong>。</li>
+                                        <li>點選 <strong>下一步</strong>。</li>
+                                    </ol>
+                                    <p class="text-xs text-amber-600 mt-2"><i class="fa-solid fa-triangle-exclamation mr-1"></i> 請填寫真實資料，方便診所核對身分。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center">
+                            <div class="max-w-[280px]">
+                                <img src="04.jpg" alt="個人資料使用同意書頁面" class="w-full rounded-lg shadow-md border border-slate-100" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 04.jpg 缺失)'">
+                                <p class="text-xs text-center text-slate-400 mt-2">勾選同意後，按「確認」</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 & 5 -->
+                <div class="step-card bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2 space-y-4">
+                            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 text-blue-600 font-bold mb-2">3</div>
+                            <h3 class="text-xl font-bold">設定完成！</h3>
+                            <p class="text-slate-600">您可以設定用餐時間（或跳過），完成後就會看到主畫面。</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                                <h4 class="font-bold text-slate-800 mb-2">功能選單包含：</h4>
+                                <div class="grid grid-cols-2 gap-2 text-sm text-slate-600">
+                                    <span><i class="fa-solid fa-droplet text-red-400 w-5"></i> 血糖</span>
+                                    <span><i class="fa-solid fa-heart-pulse text-red-500 w-5"></i> 血壓</span>
+                                    <span><i class="fa-solid fa-weight-scale text-blue-400 w-5"></i> 體重</span>
+                                    <span><i class="fa-solid fa-pills text-purple-400 w-5"></i> 用藥</span>
+                                    <span><i class="fa-solid fa-bowl-rice text-orange-400 w-5"></i> 飲食</span>
+                                    <span><i class="fa-solid fa-person-running text-green-500 w-5"></i> 運動</span>
+                                    <span><i class="fa-solid fa-head-side-mask text-gray-500 w-5"></i> 症狀</span>
+                                    <span><i class="fa-solid fa-syringe text-cyan-500 w-5"></i> 腸泌素</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 flex justify-center">
+                            <div class="max-w-[280px]">
+                                <img src="05.jpg" alt="健康小筆記功能選單畫面" class="w-full rounded-lg shadow-md border border-slate-100" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 05.jpg 缺失)'">
+                                <p class="text-xs text-center text-slate-400 mt-2">看到這個畫面，代表註冊成功囉！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-slate-200">
+
+        <!-- Common Tasks -->
+        <section id="common-tasks" class="space-y-12">
+            <div class="markdown-body">
+                <h2 class="text-3xl font-bold text-slate-800">常見任務</h2>
+            </div>
+
+            <!-- Task 1: Blood Sugar -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="bg-red-100 text-red-600 p-2 rounded-lg"><i class="fa-solid fa-droplet text-xl"></i></span>
+                    <h3 class="text-2xl font-bold text-slate-800">任務一：記錄血糖</h3>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Method A -->
+                    <div class="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
+                        <span class="inline-block bg-blue-600 text-white text-xs px-2 py-1 rounded mb-3">推薦</span>
+                        <h4 class="text-xl font-bold mb-4 text-blue-800">方法 A：拍照輸入</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-slate-700 text-sm mb-6">
+                            <li>點選 <strong>血糖記錄</strong> > <strong>拍照輸入</strong>。</li>
+                            <li>對準螢幕，讓數字清楚顯示在畫面中。</li>
+                            <li>點選 <strong>拍照</strong>，等待 AI 辨識。</li>
+                            <li>確認數字無誤後按 <strong>確認</strong>。</li>
+                            <li>選擇 <strong>量測時段</strong> 並送出。</li>
+                        </ol>
+                        <div class="flex justify-center">
+                            <div class="max-w-[240px]">
+                                <img src="07.jpg" alt="拍照辨識血糖" class="rounded-lg shadow-sm border border-slate-200" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 07.jpg 缺失)'">
+                                <p class="text-xs text-center text-slate-400 mt-2">對準螢幕數字拍照</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Method B -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200">
+                        <h4 class="text-xl font-bold mb-4 text-slate-700">方法 B：手動輸入</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-slate-700 text-sm mb-6">
+                            <li>點選 <strong>血糖記錄</strong>。</li>
+                            <li>輸入數字（例如 108）。</li>
+                            <li>選擇 <strong>量測時段</strong>（如下表）。</li>
+                            <li>送出記錄。</li>
+                        </ol>
+                        
+                        <div class="overflow-hidden rounded-lg border border-slate-200 text-sm">
+                            <table class="min-w-full divide-y divide-slate-200">
+                                <thead class="bg-slate-50">
+                                    <tr>
+                                        <th class="px-3 py-2 text-left font-medium text-slate-500">時段</th>
+                                        <th class="px-3 py-2 text-left font-medium text-slate-500">說明</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 bg-white">
+                                    <tr><td class="px-3 py-2">早餐前</td><td class="px-3 py-2 text-slate-500">空腹血糖</td></tr>
+                                    <tr><td class="px-3 py-2">飯後 2 小時</td><td class="px-3 py-2 text-slate-500">吃完第一口飯後算起</td></tr>
+                                    <tr><td class="px-3 py-2">睡前</td><td class="px-3 py-2 text-slate-500">睡覺前測量</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 2: Blood Pressure -->
+            <div class="space-y-6 pt-8 border-t border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="bg-red-100 text-red-600 p-2 rounded-lg"><i class="fa-solid fa-heart-pulse text-xl"></i></span>
+                    <h3 class="text-2xl font-bold text-slate-800">任務二：記錄血壓</h3>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2 space-y-4">
+                        <p class="text-slate-600">同樣支援 <strong>拍照輸入</strong>！AI 會自動抓取收縮壓、舒張壓和脈搏。</p>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <h4 class="font-bold text-sm text-slate-700 mb-2">數值說明：</h4>
+                            <ul class="space-y-2 text-sm text-slate-600">
+                                <li><strong>收縮壓</strong>：上面的大數字</li>
+                                <li><strong>舒張壓</strong>：下面的小數字</li>
+                                <li><strong>脈搏</strong>：心跳次數</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="max-w-[280px]">
+                            <img src="06.jpg" alt="拍照辨識血壓" class="rounded-lg shadow-md border border-slate-100" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 06.jpg 缺失)'">
+                            <p class="text-xs text-center text-slate-400 mt-2">一次辨識三個數字</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 3: Diet -->
+            <div class="space-y-6 pt-8 border-t border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="bg-orange-100 text-orange-600 p-2 rounded-lg"><i class="fa-solid fa-utensils text-xl"></i></span>
+                    <h3 class="text-2xl font-bold text-slate-800">任務三：記錄飲食 (AI 辨識)</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <p class="text-slate-600">拍一張照片，AI 自動幫您分析食物內容與潛在風險。</p>
+                        <ol class="list-decimal list-inside space-y-2 text-slate-700 text-sm">
+                            <li>點選 <strong>飲食記錄</strong> > <strong>拍照</strong>。</li>
+                            <li>系統列出辨識到的食物。</li>
+                            <li>回答簡單問題（是否有喝湯、沾醬等）。</li>
+                            <li>查看 <strong>風險標籤</strong> (如：高鈉、高糖)。</li>
+                        </ol>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100 mt-4">
+                            <h5 class="font-bold text-yellow-800 text-sm mb-2"><i class="fa-solid fa-tags mr-1"></i> 風險標籤說明</h5>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <div><span class="font-bold">高鈉</span>：加工食品、湯</div>
+                                <div><span class="font-bold">高鉀</span>：香蕉、深綠蔬菜</div>
+                                <div><span class="font-bold">高磷</span>：加工肉、乳製品</div>
+                                <div><span class="font-bold">高糖</span>：甜點、飲料</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <img src="08.jpg" alt="AI 飲食辨識" class="w-full rounded-lg shadow-sm border border-slate-100" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 08.jpg 缺失)'">
+                            <p class="text-xs text-center text-slate-400 mt-1">拍照上傳</p>
+                        </div>
+                        <div>
+                            <img src="09.jpg" alt="AI 辨識結果" class="w-full rounded-lg shadow-sm border border-slate-100" onerror="this.src='https://placehold.co/300x600?text=Image+Missing';this.nextElementSibling.innerText='(圖片 09.jpg 缺失)'">
+                            <p class="text-xs text-center text-slate-400 mt-1">辨識結果與標籤</p>
+                        </div>
+                        <div class="col-span-2">
+                             <!-- Placeholder for missing image 10 -->
+                             <div class="w-full h-32 bg-slate-100 rounded-lg flex items-center justify-center border border-dashed border-slate-300">
+                                <span class="text-slate-400 text-sm"><i class="fa-solid fa-check mr-1"></i> 確認上傳完成記錄</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 4: Report -->
+            <div class="space-y-6 pt-8 border-t border-slate-100">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="bg-purple-100 text-purple-600 p-2 rounded-lg"><i class="fa-solid fa-chart-line text-xl"></i></span>
+                    <h3 class="text-2xl font-bold text-slate-800">任務四：查看健康報表</h3>
+                </div>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/2 space-y-4">
+                        <ul class="space-y-3 text-slate-700">
+                            <li class="flex items-start"><i class="fa-regular fa-calendar-days mt-1 mr-2 text-blue-500"></i> 選擇時間範圍：7 天、30 天、90 天。</li>
+                            <li class="flex items-start"><i class="fa-solid fa-layer-group mt-1 mr-2 text-blue-500"></i> 切換分頁查看不同數據（血糖、血壓、體重）。</li>
+                            <li class="flex items-start"><i class="fa-solid fa-arrow-trend-up mt-1 mr-2 text-blue-500"></i> 透過趨勢圖了解身體變化。</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="max-w-[320px]">
+                            <img src="11.jpg" alt="健康報表趨勢圖" class="w-full rounded-lg shadow-md border border-slate-100" onerror="this.src='https://placehold.co/300x500?text=Image+Missing';this.nextElementSibling.innerText='(圖片 11.jpg 缺失)'">
+                            <p class="text-xs text-center text-slate-400 mt-2">健康趨勢圖表範例</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Records & FAQ -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Other Records -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold mb-4 text-slate-800">其他記錄類型</h3>
+                <div class="space-y-4">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-slate-700 group-hover:text-blue-600 transition">
+                            <span><i class="fa-solid fa-syringe w-6 text-center mr-1 text-cyan-500"></i> 腸泌素/瘦瘦筆</span>
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                        </summary>
+                        <div class="text-slate-600 text-sm mt-3 pl-7 space-y-2">
+                            <p>選擇藥物（猛健樂/週纖達）與劑量。成功後可設定 <strong>Google 日曆提醒</strong>，每週準時施打。</p>
+                        </div>
+                    </details>
+                    <hr class="border-slate-100">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-slate-700 group-hover:text-blue-600 transition">
+                            <span><i class="fa-solid fa-weight-scale w-6 text-center mr-1 text-blue-400"></i> 體重記錄</span>
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                        </summary>
+                        <div class="text-slate-600 text-sm mt-3 pl-7">
+                            <p>輸入體重（可含小數），長期追蹤體重變化。</p>
+                        </div>
+                    </details>
+                    <hr class="border-slate-100">
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-slate-700 group-hover:text-blue-600 transition">
+                            <span><i class="fa-solid fa-clock-rotate-left w-6 text-center mr-1 text-gray-500"></i> 補登過去記錄</span>
+                            <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                        </summary>
+                        <div class="text-slate-600 text-sm mt-3 pl-7">
+                            <p>忘記記錄沒關係！可以調整日期時間，補登 <strong>過去 7 天內</strong> 的資料。</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- FAQ / Troubleshooting -->
+            <div id="faq" class="bg-slate-100 p-6 rounded-2xl border border-slate-200">
+                <h3 class="text-xl font-bold mb-4 text-slate-800">卡住了怎麼辦？</h3>
+                <div class="space-y-4 text-sm">
+                    <div class="bg-white p-3 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-red-500 mb-1"><i class="fa-solid fa-camera-rotate mr-1"></i> 拍照無法辨識？</h4>
+                        <p class="text-slate-600">請避開螢幕反光，讓數字清晰顯示。如果還是失敗，請直接切換為<strong>手動輸入</strong>。</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-amber-500 mb-1"><i class="fa-solid fa-pen-to-square mr-1"></i> 記錄記錯了？</h4>
+                        <p class="text-slate-600">記錄送出後<strong>無法刪除</strong>。請新增一筆正確的記錄，並在備註欄說明「前一筆有誤」即可。</p>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-blue-500 mb-1"><i class="fa-solid fa-user-clock mr-1"></i> 一直顯示「待核對」？</h4>
+                        <p class="text-slate-600">這是正常的，代表診所尚未核對身分。您可以繼續正常使用，記錄不受影響。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2">祝您健康管理順利！</p>
+            <p class="text-xs text-slate-500">&copy; 健康小筆記 User Guide</p>
+        </div>
+    </footer>
+
+</body>
+</html>
